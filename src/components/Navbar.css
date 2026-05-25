@@ -145,3 +145,33 @@
     font-size: 1rem;
   }
 }
+
+/* Logo with burger character */
+.navbar__logo {
+  flex-direction: row;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.navbar__logo-img {
+  height: 72px;
+  width: auto;
+  object-fit: contain;
+  transition: transform 0.4s ease;
+  filter: drop-shadow(0 2px 4px var(--shadow-warm));
+}
+
+.navbar--scrolled .navbar__logo-img {
+  height: 44px;
+}
+
+.navbar__logo:hover .navbar__logo-img {
+  transform: rotate(-6deg) scale(1.08);
+}
+
+.navbar__logo-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1;
+  gap: 0.1rem;
+}

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './Navbar.css';
+import navbarLogo from './navbar-logo.png';
 
 const Navbar: React.FC = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -19,8 +20,15 @@ const Navbar: React.FC = () => {
   return (
     <nav className={`navbar ${scrolled ? 'navbar--scrolled' : ''}`}>
       <div className="navbar__logo" onClick={() => scrollTo('hero')}>
-        <span className="navbar__logo-script">Ben's</span>
-        <span className="navbar__logo-serif">Smash Stack</span>
+        <img
+          src={navbarLogo}
+          alt="Ben's Smash Stack burger character"
+          className="navbar__logo-img"
+        />
+        <div className="navbar__logo-text">
+          <span className="navbar__logo-script">Ben's</span>
+          <span className="navbar__logo-serif">Smash Stack</span>
+        </div>
       </div>
 
       <ul className={`navbar__links ${menuOpen ? 'navbar__links--open' : ''}`}>

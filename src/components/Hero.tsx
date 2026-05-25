@@ -78,11 +78,6 @@ const Hero: React.FC = () => {
             Private Events
           </button>
         </div>
-
-        <div className="hero__scroll-hint">
-          <span className="hero__scroll-line" />
-          <span className="hero__scroll-text">Scroll</span>
-        </div>
       </div>
 
       {/* Wavy bottom divider */}

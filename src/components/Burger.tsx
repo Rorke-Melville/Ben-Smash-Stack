@@ -11,7 +11,7 @@ interface MenuItem {
 const menu: MenuItem[] = [
   {
     name: 'The Classic Stack',
-    description: 'Double wagyu smash patty, American cheese, house sauce, dill pickles, shredded iceberg on a toasted brioche bun.',
+    description: 'Two 4oz smash patties, American cheese, caramelised onions, fresh lettuce, ripe tomato, and the legendary special sauce — all on a soft potato bun.',
     note: 'The one that started it all.',
     tag: 'Signature',
   },

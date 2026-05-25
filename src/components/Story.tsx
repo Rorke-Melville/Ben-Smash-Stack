@@ -80,11 +80,20 @@ const Story: React.FC = () => {
             and an obsession with getting something simple absolutely perfect.
           </p>
           <p className="story__body">
-            Two years of experimenting with beef blends, butter ratios, and bun 
-            brioche recipes later, the Smash Stack was born. Every burger is a 
-            hand-pressed, single-smash patty on a toasted brioche bun — crispy edges, 
-            juicy heart, layered with house-made sauces that have no business being 
-            that good.
+            Two years of experimenting with beef blends and brioche recipes later, the
+            Smash Stack was born. Every burger starts with two 4oz patties, hand-pressed
+            and smashed hard on a flat-top griddle until the edges go crispy and the
+            inside stays impossibly juicy. Draped in melted American cheese, stacked with
+            caramelised onions, fresh lettuce, ripe tomato, and nestled inside a soft
+            potato bun — it's a simple list of ingredients that somehow adds up to
+            something greater than the sum of its parts.
+          </p>
+          <p className="story__body">
+            Then there's the sauce. Ben won't talk about it. Won't write it down.
+            Won't even make eye contact when you ask. All we know is it's been quietly
+            perfected over hundreds of late-night sessions, and that once you've had it,
+            every other burger feels like it's missing something. People have tried to
+            reverse-engineer it. Nobody's got close.
           </p>
           <p className="story__body story__body--em">
             "I just want people to close their eyes on the first bite."
