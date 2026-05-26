@@ -6,6 +6,7 @@ interface MenuItem {
   description: string;
   note: string;
   tag?: string;
+  image: string;
 }
 
 const menu: MenuItem[] = [
@@ -14,22 +15,26 @@ const menu: MenuItem[] = [
     description: 'Two 4oz smash patties, American cheese, caramelised onions, fresh lettuce, ripe tomato, and the legendary special sauce — all on a soft potato bun.',
     note: 'The one that started it all.',
     tag: 'Signature',
+    image: 'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=800&auto=format&fit=crop&q=80',
   },
   {
     name: 'The Green Vibes',
     description: 'Single smash, smashed avocado, pickled jalapeño, herb aioli, fresh tomato, cos lettuce.',
     note: 'Chill but still hits hard.',
+    image: 'https://images.unsplash.com/photo-1520072959219-c595dc870360?w=800&auto=format&fit=crop&q=80',
+  },
+  {
+    name: 'The Smoke Ring',
+    description: 'Smoked brisket & smash blend, chipotle BBQ, crispy shallots, coleslaw, smoky cheddar.',
+    note: 'Low and slow energy, high and fast flavour.',
+    image: 'https://images.unsplash.com/photo-1553979459-d2229ba7433b?w=800&auto=format&fit=crop&q=80',
   },
   {
     name: 'The Caramel Crown',
     description: 'Double smash, caramelised onions, aged gruyère, Dijon mustard, truffle mayo, rocket.',
     note: 'Slow-cooked patience, fast satisfaction.',
     tag: 'Chef\'s Pick',
-  },
-  {
-    name: 'The Smoke Ring',
-    description: 'Smoked brisket & smash blend, chipotle BBQ, crispy shallots, coleslaw, smoky cheddar.',
-    note: 'Low and slow energy, high and fast flavour.',
+    image: 'https://images.unsplash.com/photo-1550317138-10000687a72b?w=800&auto=format&fit=crop&q=80',
   },
 ];
 
@@ -53,6 +58,9 @@ const BurgerCard: React.FC<{ item: MenuItem; index: number }> = ({ item, index }
       style={{ transitionDelay: `${index * 0.15}s` }}
     >
       {item.tag && <span className="burger-card__tag">{item.tag}</span>}
+      <div className="burger-card__image">
+        <img src={item.image} alt={item.name} />
+      </div>
       <div className="burger-card__number">0{index + 1}</div>
       <h3 className="burger-card__name">{item.name}</h3>
       <p className="burger-card__desc">{item.description}</p>
