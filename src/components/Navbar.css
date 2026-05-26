@@ -60,11 +60,27 @@
   text-transform: uppercase;
   color: var(--text-mid);
   transition: color 0.3s ease;
-  padding: 0;
+  padding: 0 0 2px;
+  position: relative;
+}
+
+.navbar__links li button:not(.navbar__cta)::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--brown-light);
+  transition: width 0.3s ease;
 }
 
 .navbar__links li button:hover {
   color: var(--brown-light);
+}
+
+.navbar__links li button:not(.navbar__cta):hover::after {
+  width: 100%;
 }
 
 .navbar__cta {
