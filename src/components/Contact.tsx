@@ -66,16 +66,7 @@ const Contact: React.FC = () => {
             </div>
           </div>
 
-          {/* Decorative element */}
-          <div className="contact__decor">
-            <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" className="contact__decor-svg">
-              <circle cx="100" cy="100" r="90" fill="none" stroke="var(--brown-pale)" strokeWidth="1" opacity="0.4" />
-              <circle cx="100" cy="100" r="70" fill="none" stroke="var(--brown-pale)" strokeWidth="0.5" opacity="0.3" />
-              <text x="100" y="85" textAnchor="middle" fontFamily="var(--font-script)" fontSize="22" fill="var(--brown-light)">Ben's</text>
-              <text x="100" y="108" textAnchor="middle" fontFamily="var(--font-display)" fontSize="11" fill="var(--brown-dark)" letterSpacing="4" fontWeight="500">SMASH STACK</text>
-              <text x="100" y="128" textAnchor="middle" fontFamily="var(--font-body)" fontSize="7" fill="var(--brown-muted)" letterSpacing="3">Aspen · CO</text>
-            </svg>
-          </div>
+ 
         </div>
 
         {/* Right form */}
