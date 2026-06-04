@@ -27,7 +27,7 @@ const Navbar: React.FC = () => {
         />
         <div className="navbar__logo-text">
           <span className="navbar__logo-script">Ben's</span>
-          <span className="navbar__logo-serif">Smash Stack</span>
+          <span className="navbar__logo-serif">Smash Shack</span>
         </div>
       </div>
 

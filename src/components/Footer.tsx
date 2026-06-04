@@ -10,7 +10,7 @@ const Footer: React.FC = () => {
       <div className="footer__inner">
         <div className="footer__brand">
           <span className="footer__script">Ben's</span>
-          <span className="footer__wordmark">Smash Stack</span>
+          <span className="footer__wordmark">Smash Shack</span>
           <p className="footer__tagline">
             Handcrafted burgers &amp; private catering.<br />Aspen, Colorado
           </p>
@@ -33,7 +33,7 @@ const Footer: React.FC = () => {
 
         <div className="footer__contact">
           <p className="footer__nav-label">Reach out</p>
-          <a href="mailto:ben@smashstack.co.nz">ben@smashstack.co.nz</a>
+          <a href="mailto:ben@smashshack.com">ben@smashshack.com</a>
           <a href="tel:+6421000000">+64 21 000 000</a>
           <div className="footer__socials">
             {['Instagram', 'Facebook', 'TikTok'].map((s) => (
@@ -46,7 +46,7 @@ const Footer: React.FC = () => {
       </div>
 
       <div className="footer__bottom">
-        <span>© {new Date().getFullYear()} Ben's Smash Stack. All rights reserved.</span>
+        <span>© {new Date().getFullYear()} Ben's Smash Shack. All rights reserved.</span>
         <span className="footer__vibe">Made with 🌿 and good vibes.</span>
       </div>
     </footer>

@@ -61,7 +61,7 @@ const Hero: React.FC = () => {
           <h1 className="hero__title">
             <span className="hero__title-script">Ben's</span>
             <span className="hero__title-main">Smash</span>
-            <span className="hero__title-main hero__title-main--indent">Stack</span>
+            <span className="hero__title-main hero__title-main--indent">Shack</span>
           </h1>
         </div>
 
@@ -72,7 +72,7 @@ const Hero: React.FC = () => {
 
         <div className="hero__actions">
           <button className="hero__btn hero__btn--primary" onClick={() => scrollTo('burger')}>
-            Explore the Stack
+            Explore the Shack
           </button>
           <button className="hero__btn hero__btn--ghost" onClick={() => scrollTo('catering')}>
             Private Events

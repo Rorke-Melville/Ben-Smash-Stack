@@ -1,92 +1,45 @@
 import React, { useEffect, useRef, useState } from 'react';
 import './Burger.css';
 
-interface MenuItem {
-  name: string;
-  description: string;
-  note: string;
-  tag?: string;
-  image: string;
-}
-
-const menu: MenuItem[] = [
-  {
-    name: 'The Classic Stack',
-    description: 'Two 4oz smash patties, American cheese, caramelised onions, fresh lettuce, ripe tomato, and the legendary special sauce — all on a soft potato bun.',
-    note: 'The one that started it all.',
-    tag: 'Signature',
-    image: 'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=800&auto=format&fit=crop&q=80',
-  },
-  {
-    name: 'The Green Vibes',
-    description: 'Single smash, smashed avocado, pickled jalapeño, herb aioli, fresh tomato, cos lettuce.',
-    note: 'Chill but still hits hard.',
-    image: 'https://images.unsplash.com/photo-1520072959219-c595dc870360?w=800&auto=format&fit=crop&q=80',
-  },
-  {
-    name: 'The Smoke Ring',
-    description: 'Smoked brisket & smash blend, chipotle BBQ, crispy shallots, coleslaw, smoky cheddar.',
-    note: 'Low and slow energy, high and fast flavour.',
-    image: 'https://images.unsplash.com/photo-1553979459-d2229ba7433b?w=800&auto=format&fit=crop&q=80',
-  },
-  {
-    name: 'The Caramel Crown',
-    description: 'Double smash, caramelised onions, aged gruyère, Dijon mustard, truffle mayo, rocket.',
-    note: 'Slow-cooked patience, fast satisfaction.',
-    tag: 'Chef\'s Pick',
-    image: 'https://images.unsplash.com/photo-1550317138-10000687a72b?w=800&auto=format&fit=crop&q=80',
-  },
-];
-
-const BurgerCard: React.FC<{ item: MenuItem; index: number }> = ({ item, index }) => {
-  const ref = useRef<HTMLDivElement>(null);
-  const [visible, setVisible] = useState(false);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => { if (entry.isIntersecting) setVisible(true); },
-      { threshold: 0.15 }
-    );
-    if (ref.current) observer.observe(ref.current);
-    return () => observer.disconnect();
-  }, []);
-
-  return (
-    <div
-      ref={ref}
-      className={`burger-card ${visible ? 'burger-card--visible' : ''}`}
-      style={{ transitionDelay: `${index * 0.15}s` }}
-    >
-      {item.tag && <span className="burger-card__tag">{item.tag}</span>}
-      <div className="burger-card__image">
-        <img src={item.image} alt={item.name} />
-      </div>
-      <div className="burger-card__number">0{index + 1}</div>
-      <h3 className="burger-card__name">{item.name}</h3>
-      <p className="burger-card__desc">{item.description}</p>
-      <p className="burger-card__note">
-        <em>"{item.note}"</em>
-      </p>
-      <div className="burger-card__line" />
-    </div>
-  );
+const featured = {
+  name: 'The Classic Stack',
+  description: 'Two 4oz smash patties, American cheese, caramelised onions, fresh lettuce, ripe tomato, and the legendary special sauce — all on a soft potato bun.',
+  note: 'The one that started it all.',
+  tag: 'Signature',
+  image: 'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=1200&auto=format&fit=crop&q=80',
 };
 
 const Burger: React.FC = () => {
-  const titleRef = useRef<HTMLDivElement>(null);
-  const [titleVisible, setTitleVisible] = useState(false);
+  const sectionRef = useRef<HTMLElement>(null);
+  const headerRef = useRef<HTMLDivElement>(null);
+  const cardRef = useRef<HTMLDivElement>(null);
+  const [headerVisible, setHeaderVisible] = useState(false);
+  const [cardVisible, setCardVisible] = useState(false);
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => { if (entry.isIntersecting) setTitleVisible(true); },
-      { threshold: 0.3 }
-    );
-    if (titleRef.current) observer.observe(titleRef.current);
-    return () => observer.disconnect();
+    const observers: IntersectionObserver[] = [];
+
+    const makeObserver = (
+      ref: React.RefObject<HTMLElement | HTMLDivElement>,
+      setter: (v: boolean) => void,
+      threshold = 0.2
+    ) => {
+      const obs = new IntersectionObserver(
+        ([entry]) => { if (entry.isIntersecting) setter(true); },
+        { threshold }
+      );
+      if (ref.current) obs.observe(ref.current);
+      observers.push(obs);
+    };
+
+    makeObserver(headerRef as React.RefObject<HTMLDivElement>, setHeaderVisible, 0.3);
+    makeObserver(cardRef as React.RefObject<HTMLDivElement>, setCardVisible, 0.15);
+
+    return () => observers.forEach(o => o.disconnect());
   }, []);
 
   return (
-    <section className="burger" id="burger">
+    <section className="burger" id="burger" ref={sectionRef}>
       {/* Decorative wave top */}
       <div className="burger__wave-top">
         <svg viewBox="0 0 1440 80" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
@@ -98,26 +51,41 @@ const Burger: React.FC = () => {
       </div>
 
       <div
-        className={`burger__header ${titleVisible ? 'burger__header--visible' : ''}`}
-        ref={titleRef}
+        className={`burger__header ${headerVisible ? 'burger__header--visible' : ''}`}
+        ref={headerRef}
       >
-        <p className="burger__label">The Menu</p>
+        <p className="burger__label">The Signature</p>
         <h2 className="burger__title">
-          Every Stack, a
+          One Stack.
           <br />
-          <em>small masterpiece.</em>
+          <em>Perfected.</em>
         </h2>
         <p className="burger__subtitle">
-          Available for private events, pop-ups & bookings.
+          Available for private events, pop-ups &amp; bookings.
           <br />
-          All patties freshly ground, pressed and smashed to order.
+          Freshly ground, pressed and smashed to order.
         </p>
       </div>
 
-      <div className="burger__grid">
-        {menu.map((item, i) => (
-          <BurgerCard key={item.name} item={item} index={i} />
-        ))}
+      {/* Featured single card */}
+      <div
+        ref={cardRef}
+        className={`burger-featured ${cardVisible ? 'burger-featured--visible' : ''}`}
+      >
+        <div className="burger-featured__image-wrap">
+          <img src={featured.image} alt={featured.name} className="burger-featured__image" />
+          <div className="burger-featured__image-overlay" />
+          <span className="burger-featured__tag">{featured.tag}</span>
+        </div>
+
+        <div className="burger-featured__body">
+          <h3 className="burger-featured__name">{featured.name}</h3>
+          <div className="burger-featured__divider" />
+          <p className="burger-featured__desc">{featured.description}</p>
+          <p className="burger-featured__note">
+            <em>"{featured.note}"</em>
+          </p>
+        </div>
       </div>
 
       {/* Bottom botanical strip */}

@@ -124,13 +124,13 @@ const Catering: React.FC = () => {
         <div className="catering__header">
           <p className="catering__label">Private Catering</p>
           <h2 className="catering__title">
-            Bring the Stack
+            Bring the Shack
             <br />
             <em>to your world.</em>
           </h2>
           <p className="catering__intro">
             Ben is available for private events across Aspen and beyond. Whether
-            it's an intimate dinner party or a 200-person festival, the smash stack
+            it's an intimate dinner party or a 200-person festival, the smash shack
             travels with its full quality intact.
           </p>
         </div>
